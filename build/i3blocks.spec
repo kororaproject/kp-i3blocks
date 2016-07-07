@@ -5,10 +5,9 @@ Summary:        highly flexible status line for the i3 window manager
 
 License:        GPLv3
 URL:            https://github.com/vivien/i3blocks
-Source0:        https://github.com/vivien/%{name}/releases/download/%{version}/%{name}-%{version}.tar.gz
+Source0:        %{name}-%{version}.tar.gz
 
-#BuildRequires:  
-#Requires:       
+BuildRequires: rubygem-ronn
 
 %description
 i3blocks is a highly flexible status line for the i3 window manager. It handles clicks, signals and language-agnostic user scripts.
@@ -19,6 +18,7 @@ i3blocks is a highly flexible status line for the i3 window manager. It handles 
 sed -e 's|PREFIX=/usr/local|PREFIX=%{_prefix}|g' -i Makefile
 
 %build
+make clean all
 make %{?_smp_mflags}
 
 
